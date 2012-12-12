@@ -13,6 +13,9 @@ if Meteor.isClient
 				Session.set("percentageNow", percentage.toString())
 				if Session.get("percentageNow") is "100"
 					Session.set("upload_complete", true)
+					$(".alert").fadeOut "slow", ->
+						console.log "jquery fadeOut fired"
+						Session.set("upload_complete", false)
 					Session.set("percentageNow", false)
 				console.log "Loading: #{ percentage }%"
 				console.log percentage
