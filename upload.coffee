@@ -13,12 +13,11 @@ if Meteor.isClient
 				Session.set("percentageNow", percentage.toString())
 				if Session.get("percentageNow") is "100"
 					Session.set("upload_complete", true)
-					###
+					Session.set("percentageNow", false)
+					Meteor.flush()
 					$(".alert").fadeOut "slow", ->
 						console.log "jquery fadeOut fired"
 						Session.set("upload_complete", false)
-					###
-					Session.set("percentageNow", false)
 				console.log "Loading: #{ percentage }%"
 				console.log percentage
 				console.log percentage.toString()
@@ -28,13 +27,7 @@ if Meteor.isClient
 	
 	Template.file_form.uploading_complete = ->
 		Session.get("upload_complete")
-		if Session.get("upload_complete")
-			$(".alert").fadeOut "slow", ->
-				console.log "jquery fadeOut fired"
-				Session.set("upload_complete", false)
-
-
-
+	
 	Template.file_form.rendered = ->
 		filepicker.setKey('AMjxEmUjxTZKeGg7RZg9Zz')
 		$('.fileupload').fileupload()
