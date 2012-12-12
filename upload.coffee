@@ -14,8 +14,6 @@ if Meteor.isClient
 				if Session.get("percentageNow") is "100"
 					Session.set("upload_complete")
 					Session.set("percentageNow", false)
-				else 
-					Session.set("upload_complete", false)
 				console.log "Loading: #{ percentage }%"
 				console.log percentage
 				console.log percentage.toString()
@@ -23,7 +21,7 @@ if Meteor.isClient
 	Template.file_form.uploading_percentage = ->
 		Session.get("percentageNow")
 	
-	Template.file_form.upload_complete = ->
+	Template.file_form.uploading_complete = ->
 		Session.get("upload_complete")
 
 	Template.file_form.rendered = ->
