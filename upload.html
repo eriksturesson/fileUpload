@@ -11,13 +11,12 @@
 </body>
 
 <template name="file_form">
-	{{#isolate}}
-		<div class="fileupload fileupload-new" data-provides="fileupload">		
-			<div class="input-append">
-				<div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input id="upload" accept="image/*" type="file" name="file"></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-			</div>
+	<div class="fileupload fileupload-new" data-provides="fileupload">		
+		<div class="input-append">
+			<div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input id="upload" accept="image/*" type="file" name="file"></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
 		</div>
-	{{/isolate}}
+	</div>
+{{#isolate}}
 	{{#if uploading_percentage}}
 		<div class="progress progress-striped active">
 			<div class="bar" style="width: {{uploading_percentage}}%;"></div>
@@ -29,4 +28,5 @@
 			Upload Successful!
 		</div>
 	{{/if}}
+{{/isolate}}
 </template>
