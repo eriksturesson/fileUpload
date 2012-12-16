@@ -25,7 +25,16 @@
 
 	{{#if uploading_complete}}
 		<div class="alert alert-success">
-			Upload Successful!
+			Upload Finalized and Successful!
+		</div>
+	{{/if}}
+	
+	{{#if rendering_percentage}}
+		<div class="progress progress-success progress-striped active">
+			<div class="bar" style="width: {{rendering_percentage}}%"></div>
+		</div>
+		<div class="alert alert-info">
+			<strong>Upload Successful:</strong> Rendering thumbnail!
 		</div>
 	{{/if}}
 {{/isolate}}
