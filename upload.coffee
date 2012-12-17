@@ -1,3 +1,5 @@
+Images = new Meteor.Collection("images")
+
 if Meteor.isClient
 	#fires event when a file is selected in the input filed 
 	Template.file_form.events = 'change #upload': (event) ->
@@ -14,6 +16,10 @@ if Meteor.isClient
 				filepicker.convert FPFile, {width: 150, height: 150, fit: "max", format: 'jpg', quality: 60}, {location: "S3"}, ((onSuccess) ->
 					console.log "conversion successful JSON string: #{ JSON.stringify(onSuccess)}"
 					console.log "converting onSuccess.url: #{ onSuccess.url }"
+					Images.insert
+						image: FPFile.key
+						thumb: onSuccess.key
+					console.log "image: #{ FPFile.key } - thumb: #{ onSuccess.key }"
 				), ((onError) ->
 					console.log "convering Error: #{ onError }"
 				), ((onProgress) ->
@@ -50,6 +56,10 @@ if Meteor.isClient
 	Template.file_form.rendered = ->
 		filepicker.setKey('AMjxEmUjxTZKeGg7RZg9Zz')
 		$('.fileupload').fileupload()
+
+	#Show the images in the database uploaded to S3
+	Template.imagelist.image = ->
+		Images.find {}
 
 if Meteor.isServer
 	console.log "Server Started"

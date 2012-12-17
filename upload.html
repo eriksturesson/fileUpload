@@ -7,6 +7,7 @@
 	<div class="container">
 		<h2>Upload A File</h2>
 		{{>file_form}}
+		{{>imagelist}}
 	</div>
 </body>
 
@@ -38,4 +39,16 @@
 		</div>
 	{{/if}}
 {{/isolate}}
+</template>
+
+<template name="imagelist">
+	{{#each image}}
+		{{> imagecontainer}}
+	{{/each}}
+</template>
+<template name="imagecontainer">
+	<div>
+		<img src="http://simplechat.s3.amazonaws.com/{{image}}" class="img-rounded">
+		<img src="http://simplechat.s3.amazonaws.com/{{thumb}}" class="img-rounded">
+	</div>
 </template>
