@@ -59,7 +59,7 @@ if Meteor.isClient
 
 	#Show the images in the database uploaded to S3
 	Template.imagelist.image = ->
-		Images.find {}
+		Images.find {}, {sort: {_id: 1}}
 
 if Meteor.isServer
 	console.log "Server Started"
