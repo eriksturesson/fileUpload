@@ -1,8 +1,10 @@
 if Meteor.isClient
+	#fires event when a file is selected in the input filed 
 	Template.file_form.events = 'change #upload': (event) ->
 		console.log "fired upload"
 		input = $("#upload")[0]
 		console.log "input #{ input }"
+		#if something is in the input element then start the upload with filepicker api
 		if input?
 			console.log "image file has been chosen"
 			filepicker.store input, {mimetype: 'image/*'} , ((FPFile) ->
@@ -33,7 +35,8 @@ if Meteor.isClient
 				console.log "Loading: #{ percentage }%"
 				console.log percentage
 				console.log percentage.toString()
-		
+	
+	#IF there is a variable then show the accessed template
 	Template.file_form.uploading_percentage = ->
 		Session.get("uploadingPercentage")
 	
