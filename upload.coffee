@@ -16,7 +16,7 @@ if Meteor.isClient
 					console.log "convering Error: #{ onError }"
 				), ((onProgress) ->
 					console.log "converting progress: #{ onProgress }%"
-					Session.set("percentageNow", false)
+					Session.set("uploadingPercentage", false)
 					Session.set("conversionPercentage", onProgress.toString())
 					if Session.get("conversionPercentage") is "100"
 						Session.set("upload_complete", true)
@@ -29,13 +29,13 @@ if Meteor.isClient
 			), ((FPError) ->
 				console.log FPError.toString()
 			), (percentage) ->
-				Session.set("percentageNow", percentage.toString())
+				Session.set("uploadingPercentage", percentage.toString())
 				console.log "Loading: #{ percentage }%"
 				console.log percentage
 				console.log percentage.toString()
 		
 	Template.file_form.uploading_percentage = ->
-		Session.get("percentageNow")
+		Session.get("uploadingPercentage")
 	
 	Template.file_form.uploading_complete = ->
 		Session.get("upload_complete")
