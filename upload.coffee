@@ -46,6 +46,7 @@ if Meteor.isClient
 	Template.file_form.rendering_percentage = ->
 		Session.get("conversionPercentage")
 	
+	#When the template file_form is rendered then initiate fileupload
 	Template.file_form.rendered = ->
 		filepicker.setKey('AMjxEmUjxTZKeGg7RZg9Zz')
 		$('.fileupload').fileupload()
