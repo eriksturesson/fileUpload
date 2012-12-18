@@ -17,6 +17,7 @@ if Meteor.isClient
 					console.log "conversion successful JSON string: #{ JSON.stringify(onSuccess)}"
 					console.log "converting onSuccess.url: #{ onSuccess.url }"
 					Images.insert
+						created: new Date().getTime()
 						image: FPFile.key
 						thumb: onSuccess.key
 					console.log "image: #{ FPFile.key } - thumb: #{ onSuccess.key }"
@@ -59,7 +60,7 @@ if Meteor.isClient
 
 	#Show the images in the database uploaded to S3
 	Template.imagelist.image = ->
-		Images.find {}, {sort: {_id: 1}}
+		Images.find {}, {sort: {created: -1}}
 
 if Meteor.isServer
 	console.log "Server Started"
