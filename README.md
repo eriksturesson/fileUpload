@@ -8,4 +8,4 @@ What it does: Select an image > upload the file to AWS S3 > show upload and thum
 Technologies
 ------------
 
-filepicker.io, Meteor.js, Handlebars, AWS S3, Coffeescript, Jasny Bootstrap, jQuery
+filepicker.io, Meteor.js, Handlebars, AWS S3, Coffeescript, Jasny Bootstrap, jQuery, mongoDB
