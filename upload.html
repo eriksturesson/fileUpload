@@ -5,8 +5,12 @@
 
 <body>
 	<div class="container">
-		<h2>Upload an image</h2>
-		{{>file_form}}
+		<div class="row">
+			<div class="span12">
+				<h2>Upload an image</h2>
+				{{>file_form}}
+			</div>
+		</div>
 		{{>imagelist}}
 	</div>
 </body>
@@ -14,7 +18,7 @@
 <template name="file_form">
 	<div class="fileupload fileupload-new" data-provides="fileupload">		
 		<div class="input-append">
-			<div class="uneditable-input"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input id="upload" accept="image/*" type="file" name="file"></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+			<div class="uneditable-input"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input id="upload" accept="image/*" type="file"></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
 		</div>
 	</div>
 {{#isolate}}
@@ -47,8 +51,12 @@
 	{{/each}}
 </template>
 <template name="imagecontainer">
-	<div>
-		<img src="http://simplechat.s3.amazonaws.com/{{image}}" class="img-rounded">
-		<img src="http://simplechat.s3.amazonaws.com/{{thumb}}" class="img-rounded">
+	<div class="row">
+		<div class="span9">
+			<img src="http://simplechat.s3.amazonaws.com/{{image}}" class="img-rounded">
+		</div>
+		<div class="span3 pagination-centered">
+			<img src="http://simplechat.s3.amazonaws.com/{{thumb}}" class="img-rounded">
+		</div>
 	</div>
 </template>

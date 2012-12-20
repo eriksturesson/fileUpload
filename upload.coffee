@@ -56,7 +56,7 @@ if Meteor.isClient
 	#When the template file_form is rendered then initiate fileupload
 	Template.file_form.rendered = ->
 		filepicker.setKey('AMjxEmUjxTZKeGg7RZg9Zz')
-		$('.fileupload').fileupload()
+		$('.fileupload').fileupload({name: "file"})
 
 	#Show the images in the database uploaded to S3
 	Template.imagelist.image = ->

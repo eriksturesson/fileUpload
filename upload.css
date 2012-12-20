@@ -1,1 +1,19 @@
-/* CSS declarations go here */
+/* SART jasny fileupload fix */
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	.uneditable-input {
+		max-width: 8em;
+	}
+}
+.fileupload.fileupload-new {
+	display: inline-block;
+}
+/* END fix */
+img {
+	margin: 0 0 1em 0;
+}
+/*
+[class*="span"] {
+	background-color: grey;
+}
+*/
