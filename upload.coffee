@@ -1,6 +1,10 @@
 Images = new Meteor.Collection("images")
 
 if Meteor.isClient
+	console.log "this is the client"
+	Meteor.startup = ->
+		console.log "filepicker key is set"
+
 	#fires event when a file is selected in the input filed 
 	Template.file_form.events = 'change #upload': (event) ->
 		console.log "fired upload"
@@ -55,7 +59,6 @@ if Meteor.isClient
 	
 	#When the template file_form is rendered then initiate fileupload
 	Template.file_form.rendered = ->
-		filepicker.setKey('AMjxEmUjxTZKeGg7RZg9Zz')
 		$('.fileupload').fileupload({name: "file"})
 
 	#Show the images in the database uploaded to S3
