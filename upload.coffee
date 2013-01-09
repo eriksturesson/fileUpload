@@ -2,7 +2,8 @@ Images = new Meteor.Collection("images")
 
 if Meteor.isClient
 	console.log "this is the client"
-	Meteor.startup = ->
+	Meteor.startup ->
+		filepicker.setKey(fpickKey)
 		console.log "filepicker key is set"
 
 	#fires event when a file is selected in the input filed 
